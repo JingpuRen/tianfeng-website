@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 核心：width = 内容区宽度 + padding + border */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:#fff;
+
+  .header {
+    width: 100%;
+    height: 10%;
+    padding-top: 7px;
+    text-align: center;
+  }
+
+  .middle {
+    width: 100%;
+    height: 85%;
+  }
+
+  .footer {
+    width: 100%;
+    height: 5%;
+    text-align: center;
+  }
+}
