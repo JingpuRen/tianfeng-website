@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* 核心：width = 内容区宽度 + padding + border */
+  box-sizing: border-box;
 }
 
 .container {
@@ -12,7 +12,7 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color:#fff;
+  background-color: #fff;
 
   .header {
     width: 100%;
