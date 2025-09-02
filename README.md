@@ -4,7 +4,7 @@ This is tianfeng's homepage, which showcases my personal background and other in
 
 ## Technology Stack
 
-<div style="display: flex; gap: 16px; align-items: center;flex-direction:column">
+<div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
   <span>
     <img src="public/images/React.svg" alt="React" width="24" style="vertical-align:middle;" /> React
   </span>
