@@ -29,7 +29,11 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.header} ${styles.headerBg}`}>
+      {/* Header */}
+      <div
+        className={styles.header}
+        style={{ backgroundImage: "url('/images/header.png')", backgroundSize: "cover", backgroundPosition: "center" }}
+      >
         {currentPageId !== 1 && (
           <div style={{ paddingTop: "7px" }}>
             <Tooltip title="上一页">
@@ -39,6 +43,7 @@ function App() {
         )}
       </div>
 
+      {/* Middle */}
       <div className={styles.middle}>
         <Siderbar pageInfoList={PageInfoList} onClick={handleNavClick} currentPageId={currentPageId} />
         <div style={{ flex: 1 }}>
@@ -46,7 +51,8 @@ function App() {
         </div>
       </div>
 
-      <div className={`${styles.footer} ${styles.footerBg}`}>
+      {/* Footer */}
+      <div className={`${styles.footer}`} style={{ backgroundImage: "url('/images/footer.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
         {currentPageId !== PageInfoList.length && (
           <div style={{ paddingTop: "42px" }}>
             <Tooltip title="下一页">
