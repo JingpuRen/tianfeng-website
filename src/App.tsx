@@ -3,8 +3,7 @@ import { DownOutlined, UpOutlined } from '@ant-design/icons';
 import { Button, Tooltip } from 'antd';
 import PageInfoList from './components/Page';
 import { useState } from "react";
-import { QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
-import { FloatButton } from 'antd';
+import Siderbar from './components/Sidebar/Sidebar';
 
 function App() {
   const [currentPageId, setCurrentPageId] = useState<number>(1)
@@ -24,23 +23,37 @@ function App() {
     return matchedItem ? <matchedItem.component /> : null;
   }
 
+  const handleNavClick = (pageId: number) => {
+    setCurrentPageId(pageId);
+  };
+
   return (
     <div className={styles.container}>
-
-      <div className={styles.header}>
-        <Tooltip title="上一页">
-          <Button shape="circle" icon={<UpOutlined />} onClick={handleClickUp} disabled={currentPageId === 1 ? true : false} />
-        </Tooltip>
+      <div className={`${styles.header} ${styles.headerBg}`}>
+        {currentPageId !== 1 && (
+          <div style={{ paddingTop: "7px" }}>
+            <Tooltip title="上一页">
+              <Button shape="circle" icon={<UpOutlined />} onClick={handleClickUp} disabled={currentPageId === 1 ? true : false} />
+            </Tooltip>
+          </div>
+        )}
       </div>
 
       <div className={styles.middle}>
-        {getRenderComponent(currentPageId)}
+        <Siderbar pageInfoList={PageInfoList} onClick={handleNavClick} currentPageId={currentPageId} />
+        <div style={{ flex: 1 }}>
+          {getRenderComponent(currentPageId)}
+        </div>
       </div>
 
-      <div className={styles.footer}>
-        <Tooltip title="下一页">
-          <Button shape="circle" icon={<DownOutlined />} onClick={handleClickDown} disabled={currentPageId === PageInfoList.length ? true : false} />
-        </Tooltip>
+      <div className={`${styles.footer} ${styles.footerBg}`}>
+        {currentPageId !== PageInfoList.length && (
+          <div style={{ paddingTop: "42px" }}>
+            <Tooltip title="下一页">
+              <Button shape="circle" icon={<DownOutlined />} onClick={handleClickDown} disabled={currentPageId === PageInfoList.length ? true : false} />
+            </Tooltip>
+          </div>
+        )}
       </div>
     </div>
   );
